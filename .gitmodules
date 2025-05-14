@@ -1,3 +1,6 @@
 [submodule "c-periphery"]
 	path = c-periphery
 	url = https://github.com/vsergeev/c-periphery.git
+[submodule "c-periphery-al"]
+	path = c-periphery-al
+	url = https://github.com/alexandrlevashov/c-periphery

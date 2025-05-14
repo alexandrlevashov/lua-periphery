@@ -1,7 +1,19 @@
 LIB = periphery.so
-SRCS = src/lua_periphery.c src/lua_mmio.c src/lua_gpio.c src/lua_led.c src/lua_pwm.c src/lua_spi.c src/lua_i2c.c src/lua_serial.c
 
-C_PERIPHERY = c-periphery
+MACHTYPE:=$(shell set | grep ^MACHTYPE= | sed s-.*=--)
+#$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
+$(info MACHTYPE=$(MACHTYPE))
+ifeq ($(findstring darwin,$(MACHTYPE)),darwin)
+    # Found
+    SRCS = src/lua_periphery.c src/lua_serial.c 
+    CFLAGS += -arch x86_64
+    LDFLAGS += -L /usr/local/lib/ -llua
+else
+    SRCS = src/lua_periphery.c src/lua_mmio.c src/lua_gpio.c src/lua_led.c src/lua_pwm.c src/lua_spi.c src/lua_i2c.c src/lua_serial.c
+endif
+
+
+C_PERIPHERY = c-periphery-al
 C_PERIPHERY_LIB = $(C_PERIPHERY)/periphery.a
 
 ifndef LUA

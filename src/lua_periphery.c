@@ -14,12 +14,15 @@
 #include "lua_periphery.h"
 #include "lua_compat.h"
 
+
+#if ! defined(__APPLE__)
 LUALIB_API int luaopen_periphery_gpio(lua_State *L);
 LUALIB_API int luaopen_periphery_led(lua_State *L);
 LUALIB_API int luaopen_periphery_pwm(lua_State *L);
 LUALIB_API int luaopen_periphery_spi(lua_State *L);
 LUALIB_API int luaopen_periphery_mmio(lua_State *L);
 LUALIB_API int luaopen_periphery_i2c(lua_State *L);
+#endif
 LUALIB_API int luaopen_periphery_serial(lua_State *L);
 
 static int periphery_error_tostring(lua_State *L) {
@@ -73,6 +76,7 @@ LUALIB_API int luaopen_periphery(lua_State *L) {
     /* Create table of sub-modules */
     lua_newtable(L);
 
+#if ! defined(__APPLE__)
     luaopen_periphery_gpio(L);
     lua_setfield(L, -2, "GPIO");
 
@@ -88,11 +92,12 @@ LUALIB_API int luaopen_periphery(lua_State *L) {
     luaopen_periphery_i2c(L);
     lua_setfield(L, -2, "I2C");
 
-    luaopen_periphery_serial(L);
-    lua_setfield(L, -2, "Serial");
-
     luaopen_periphery_mmio(L);
     lua_setfield(L, -2, "MMIO");
+#endif
+
+    luaopen_periphery_serial(L);
+    lua_setfield(L, -2, "Serial");
 
     lua_pushstring(L, LUA_PERIPHERY_VERSION);
     lua_setfield(L, -2, "version");
