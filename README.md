@@ -1,6 +1,7 @@
 # Используем для отладки на маке
 
 * c-periphery-al(там правки для мака)  используется вместо c-periphery
+* git clone --recurse-submodules  https://github.com/alexandrlevashov/lua-periphery.git
 * git submodule update --init --recursive
 
 
