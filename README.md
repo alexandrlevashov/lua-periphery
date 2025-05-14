@@ -3,6 +3,8 @@
 * c-periphery-al(там правки для мака)  используется вместо c-periphery
 * git clone --recurse-submodules  https://github.com/alexandrlevashov/lua-periphery.git
 * git submodule update --init --recursive
+* make clean all
+* далее положить рядом с lua скриптом или в папку библиотек periphery.so
 
 
 # lua-periphery [![Build Status](https://github.com/vsergeev/lua-periphery/actions/workflows/build.yml/badge.svg)](https://github.com/vsergeev/lua-periphery/actions/workflows/build.yml) [![GitHub release](https://img.shields.io/github/release/vsergeev/lua-periphery.svg?maxAge=7200)](https://github.com/vsergeev/lua-periphery) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vsergeev/lua-periphery/blob/master/LICENSE)
