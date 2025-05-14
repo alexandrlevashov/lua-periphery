@@ -10,6 +10,7 @@ ifeq ($(findstring darwin,$(MACHTYPE)),darwin)
     LDFLAGS += -L /usr/local/lib/ -llua
 else
     SRCS = src/lua_periphery.c src/lua_mmio.c src/lua_gpio.c src/lua_led.c src/lua_pwm.c src/lua_spi.c src/lua_i2c.c src/lua_serial.c
+    LUA_INCDIR=/usr/include/lua5.3/
 endif
 
 
