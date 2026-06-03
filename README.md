@@ -5,6 +5,9 @@
 * git submodule update --init --recursive
 * make clean all
 * далее положить рядом с lua скриптом или в папку библиотек periphery.so
+* на маке с arm архитектурой под brew собирать так
+*     make clean all LUA_INCDIR=/opt/homebrew/opt/lua@5.4/include/lua CFLAGS="-arch arm64" LDFLAGS="-arch arm64 -undefined dynamic_lookup"
+
 
 
 # lua-periphery [![Build Status](https://github.com/vsergeev/lua-periphery/actions/workflows/build.yml/badge.svg)](https://github.com/vsergeev/lua-periphery/actions/workflows/build.yml) [![GitHub release](https://img.shields.io/github/release/vsergeev/lua-periphery.svg?maxAge=7200)](https://github.com/vsergeev/lua-periphery) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vsergeev/lua-periphery/blob/master/LICENSE)
